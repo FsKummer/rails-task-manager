@@ -1,6 +1,10 @@
 <h1>These are all your tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-  <li><%= link_to task.title, task_path(task) %> => <%= task.completed ? 'Feito' : 'Faz logo' %></li>
+  <li class='my-2 fs-3 py-2'>
+    <%= link_to task.title, task_path(task), class: 'text-decoration-none link-success' %> => <%= task.completed ? 'Feito' : 'Faz logo' %>
+    <%= link_to 'DELETE TASK', task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are sure you?"}, class: "btn btn-danger"%>
+    <input class="form-check-input mt-2" type="checkbox" value="" aria-label="Checkbox for following text input">
+  </li>
   <% end %>
 </ul>
