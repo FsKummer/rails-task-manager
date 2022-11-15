@@ -1,6 +1,6 @@
 <h1>These are all your tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-  <li><%= task.title %> => <%= task.completed ? 'Feito' : 'Faz logo' %></li>
+  <li><%= link_to task.title, task_path(task) %> => <%= task.completed ? 'Feito' : 'Faz logo' %></li>
   <% end %>
 </ul>
